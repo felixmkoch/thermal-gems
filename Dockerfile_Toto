@@ -1,0 +1,27 @@
+FROM nvidia/cuda:12.6.2-devel-ubuntu22.04
+
+# Prevent tzdata from prompting during install
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update system and install Python + pip
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-pip python3-venv python3-dev \
+    build-essential git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Ensure "python" points to python3
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+# Install chronos-forecasting
+RUN pip install --upgrade pip && \
+    pip install toto-ts==0.1.4
+    
+# Torch is installed with no CUDA. Therefore, we uninstall it and re-install the right version with CUDA support in the next line.
+
+# Default workdir
+WORKDIR /workspace
+
+# Copy current repository into the container
+COPY . /workspace
+
+CMD ["/bin/bash"]

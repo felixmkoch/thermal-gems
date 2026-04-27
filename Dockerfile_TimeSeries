@@ -1,0 +1,29 @@
+FROM nvidia/cuda:12.8.0-devel-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# System deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    software-properties-common \
+    build-essential git wget \
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get update && apt-get install -y --no-install-recommends \
+    python3.11 python3.11-venv python3.11-dev python3.11-distutils \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set python default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
+
+# Upgrade pip
+RUN pip install --upgrade pip
+
+# Install PyTorch (nightly if needed for sm_120)
+RUN pip install --pre torch torchvision torchaudio \
+    --index-url https://download.pytorch.org/whl/nightly/cu128
+
+# Install project deps
+RUN pip install numpy pandas matplotlib scikit-learn wandb joblib
+# or: RUN pip install -r requirements.txt
+
+CMD ["/bin/bash"]
