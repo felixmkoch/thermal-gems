@@ -27,16 +27,12 @@ The benchmark uses three building thermal dynamics datasets:
 
 ### Environment
 
-Due to conflicting dependencies between foundation models, each model requires its own conda environment:
+Due to conflicting dependencies between foundation models, each model requires its own conda environment (you can use other environments as well):
 
 ```bash
 # Create base environment
 conda create -n thermal-benchmark python=3.10
 conda activate thermal-benchmark
-
-# Install common dependencies
-pip install torch torchvision torchaudio
-pip install pandas numpy scikit-learn joblib tqdm
 ```
 
 ### Foundation Model Setup
@@ -49,14 +45,9 @@ Foundation models require separate Docker environments due to dependency conflic
 
 ### Specialized Model Setup
 
-For LSTM, Transformer, xLSTM, and Mamba models, use the provided environment files:
+For LSTM, Transformer, xLSTM, and Mamba models, use the provided environment file:
 
 ```bash
-# Using conda (recommended)
-conda env create -f timeseries.yml
-conda activate timeseries
-
-# Or using pip
 pip install -r requirements.txt
 ```
 
