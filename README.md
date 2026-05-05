@@ -99,7 +99,7 @@ If you use this code in your research, please cite:
 @article{koch2026thermal,
   title={Thermal-GEMs: Generalized Models for Building Thermal Dynamics},
   author={Koch, Felix and Raisch, Fabian and Tischler, Benjamin},
-  journal={arXiv preprint arXiv:2604.16443},
+  booktitle={Proceedings of the 13th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation}
   year={2026}
 }
 ```
