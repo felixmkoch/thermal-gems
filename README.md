@@ -96,12 +96,12 @@ Evaluation results include standard time series forecasting metrics (MSE, RMSE, 
 If you use this code in your research, please cite:
 
 ```
-@inproceedings{koch2026thermal,
+@inproceedings{koch26thermalgems,
   title={Thermal-GEMs: Generalized Models for Building Thermal Dynamics},
   author={Koch, Felix and Raisch, Fabian and Tischler, Benjamin},
   booktitle={The 13th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation},
   doi={10.1145/3744256.3812565},
-  isbn={979-8-4007-2012-3/2026/06],
+  isbn={979-8-4007-2012-3/2026/06},
   year={2026}
 }
 ```
