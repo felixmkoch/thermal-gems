@@ -87,9 +87,14 @@ docker build -f Dockerfile_Toto -t thermal-toto .
 docker run -v $(pwd):/workspace thermal-toto python eval_model.py
 ```
 
-## Results
+## FAQ  
+Frequently asked questions for the paper:  
 
-Evaluation results include standard time series forecasting metrics (MSE, RMSE, MAE) computed across all test sequences for each dataset-model combination.
+**Question:** Why does the number of buildings in the Ideal dataset from the paper deviate from the number in the official dataset Paper?  
+**Answer:** Not every building in the paper contains all the relevant information for the prediction. Only 32 of them both contained heating power information and indoor temperature, which is essential for the experiments in Thermal-GEMs  
+
+**Question:** Why do you not use the Indoor Humidity feature from buildings in the Ideal dataset? Their paper indicates that this feature is also present.  
+**Answer:** Yes, the paper says that this feature is also tracked. Not every building in their dataset contains this feature. Therefore, using only buildings that contain heating power, indoor temperature, and indoor humidity would result in a small amount left; we omitted the need for indoor temperature in the predictions (at least for Ideal).
 
 ## Citation
 
